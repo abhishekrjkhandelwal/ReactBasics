@@ -19,3 +19,28 @@
 - HTTPs
 - Tree Shaking 
 - Different dev and prod bundles
+
+
+# Food App
+
+/**
+ * header
+ *  - Logo
+ *  - Nav Items 
+ * Body
+ *  - Search 
+ *  - Restaurant Container
+ *    - RestroCard 
+ *      - Img 
+ *      - Name of res, Star rating, cuisine, delivery time
+ * Footer
+ *  - Copyright
+ *  - Links 
+ *  - Address
+ *  - Contact
+ */
+
+ # React Hooks 
+ (Normal JS Utility functions)
+ - useState() - super powerful state variables 
+ - useEffect()
