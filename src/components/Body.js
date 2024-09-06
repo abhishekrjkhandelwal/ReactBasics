@@ -1,7 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
-import resObj from "../utils/dummyData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from 'react-router-dom';
 
 const Body = () => {
     //State Variable - Super powerful variable
@@ -57,7 +57,12 @@ const Body = () => {
             <div className="res-container">
                 {
                    listofRest.map(restaruant => (
-                   <RestaurantCard key={restaruant.info.id} resData={restaruant}/>
+                   <Link
+                   key={restaruant.info.id} 
+                   to={"/restaurants/"+restaruant.info.id}
+                   >
+                    <RestaurantCard key={restaruant.info.id} resData={restaruant}/>
+                    </Link>
                 ))}
             </div>
         </div>
