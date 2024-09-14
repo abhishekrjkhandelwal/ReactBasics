@@ -1,12 +1,18 @@
 import { LOGO_URL } from "../utils/constants";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+import UserContext from "../utils/UserContext";
+import User from "./User";
 
 //Header Component
 const Header = () => {
     const [btnName, setBtnName] = useState("Login");
     console.log("Header Rendered")
     
+    const data = useContext(UserContext)
+
+    console.log("data=============++>", data)
+
     useEffect(() => {
         console.log("useEffect called")
     }, [btnName])

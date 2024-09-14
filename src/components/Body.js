@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from 'react-router-dom';
@@ -10,6 +10,8 @@ const Body = () => {
     const [listofRest, setListOfRest] = useState([]);
 
     const [searchText, setSearchText] = useState("");
+
+    const RestaurantCardPromoted = withPromotedLabel(RestaurantCard)
 
     console.log("Body Rendered")
 
@@ -66,6 +68,7 @@ const Body = () => {
                     >Top Rated Restaurant</button>
                 </div>
             </div>
+            {                   console.log("listofRest==========================>73", listofRest)}
             <div className="flex flex-wrap">
                 {
                    listofRest.map(restaruant => (
@@ -73,6 +76,12 @@ const Body = () => {
                    key={restaruant.info.id} 
                    to={"/restaurants/"+restaruant.info.id}
                    >
+                    {
+                        restaruant?.data?.promoted ? ( <RestaurantCardPromoted /> ) 
+                        : ( <RestaurantCard resData={restaruant} /> 
+
+                    )}
+
                     <RestaurantCard key={restaruant.info.id} resData={restaruant}/>
                     </Link>
                 ))}
