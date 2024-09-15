@@ -3,7 +3,6 @@ import ItemList from "./itemList";
 
 const RestaurantCategory = ({ data, setShowIndex }) => {
     
-
     const [showItems, setShowItems] = useState(false)
 
     const handleClick = () => {

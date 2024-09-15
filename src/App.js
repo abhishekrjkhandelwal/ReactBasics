@@ -10,7 +10,10 @@ import RestaurantMenu from './components/RestaurantMenu';
 import UserContext from "./utils/UserContext";
 //import Grocery from "./components/Grocery";
 import { useState } from "react";
- 
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart"; 
+
 // Chunking 
 // Code Splitting
 // Dynamic Bundling
@@ -33,12 +36,14 @@ const AppLayout = () => {
     }, [])
 
     return (
-        <UserContext.Provider value={{loggedInUser: userName}}>
-            <div className="app">
-                <Header />                
-                <Outlet />
-            </div>
-        </UserContext.Provider>
+        <Provider store={appStore}>
+            <UserContext.Provider value={{loggedInUser: userName}}>
+                <div className="app">
+                    <Header />                
+                    <Outlet />
+                </div>
+            </UserContext.Provider>
+        </Provider>
     )
 }
 
@@ -70,6 +75,10 @@ const appRouter = createBrowserRouter([
                         <Grocery />
                     </Suspense>
                 )
+            },
+            {
+                path: "/cart",
+                element: <Cart />
             }            
         ],
         errorElement: <Error />
